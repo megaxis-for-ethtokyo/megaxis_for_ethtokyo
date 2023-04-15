@@ -4,8 +4,8 @@
   Our product portfolio: 1. Web3 service platform for AI App developers; 2. AI Prompt NFT marketplace; 3. Web3 LLM-as-a-service.
 
 
-- Website: [megaxis.org](http://52.199.77.200:8528/megaxis/1)
-- promptmarket: [prompt.nftmarket.org]()
+- Website: [megaxis.org](http://52.199.77.200:8528/welcome)
+- promptmarket: [prompt.nftmarket.org](http://52.199.77.200:8528/)
 - Interface: [app.megaxis.org](https://app.uniswap.org)
 - Twitter: [@megaxis](https://twitter.com/Uniswap)
 - Email: [contact@megaxis.org](mailto:contact@uniswap.org)
