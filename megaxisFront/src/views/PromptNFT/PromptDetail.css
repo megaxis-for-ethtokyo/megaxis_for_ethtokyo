@@ -87,14 +87,20 @@
 }
 .likes-slot {
     margin-left: 2px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 }
-.likes-square{
+
+.likes-square {
     width: 25%;
     height: 50px;
     float: left;
     outline: solid 2px #777;
     margin-left: -2px;
     outline-offset: -2px;
+    display: flex;
+    align-items: center;
 }
 .alert-square{
     width: 12.9%;
@@ -109,18 +115,18 @@
     width: 20px;
     height: 20px;
     color: #ffffff;
-    margin-top: 10px;
+
 }
+
 .likes-font {
     color: #fff;
     font-size: 16px;
-    font-family: Roboto, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-    'Liberation Sans', sans-serif;
-    width: min-content;
-    height: min-content;
     white-space: nowrap;
     flex-direction: column;
+
+    margin:0 8px; /* 调整间距大小 */
 }
+
 .prompt-desc {
     padding-left: 20px;
     padding-top: 20px;
@@ -182,4 +188,11 @@
 
 .buy-word {
     line-height: 42px
+}
+
+.poyu{
+    width: 20px;
+    height: 20px;
+    color: #ffffff;
+    margin-top: 10px;
 }

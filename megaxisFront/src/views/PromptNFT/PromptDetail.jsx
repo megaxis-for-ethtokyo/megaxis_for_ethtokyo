@@ -16,7 +16,7 @@ import { ReactComponent as LinkLine } from '../../assets/icon/links-line.svg';
 import { ReactComponent as AlertLine } from '../../assets/icon/alert-line.svg';
 import { ReactComponent as StarLine } from '../../assets/icon/star-line.svg';
 import { ReactComponent as StarFill } from '../../assets/icon/star-fill.svg';
-
+import { ReactComponent as Avatar } from '../../assets/icon/avatar.svg';
 import {formatPrice, transType} from "../../utils/tools";
 
 
@@ -76,7 +76,7 @@ const PromptDetail = () => {
         getDetailInfo();
     }
     function handleToMarket() {
-        window.open("https://www.taobao.com");
+        window.open("http://megaxis.ai:3000/");
     }
     function getDetailInfo() {
         const requestBody = {pid: params.id};
@@ -109,7 +109,7 @@ const PromptDetail = () => {
                                 <span className="small-name">Tested</span>
                             </div>
                             <div className="author-info">
-                                <img src="./" />
+                                <Avatar className="poyu"/>
                                 <span className="small-name">{pInfo.author}</span>
                                 <TypeIcon fill= "#ccc" className="tag-icon"/>
                                 <span className="small-name">{pInfo.attitude}</span>
@@ -123,10 +123,13 @@ const PromptDetail = () => {
                         </div>
                     </div>
                     <div className="likes-slot">
-                        <div className="likes-square">
-                            <EyeLine className="icon1"/>
-                            <span className="likes-font">2000</span>
-                        </div>
+
+                            <div className="likes-square">
+                                <EyeLine className="icon1"/>
+                                <div className="likes-font">2000</div>
+                            </div>
+
+
                         <div className="likes-square">
                             <MsgLine className="icon1"/>
                             <span className="likes-font">1000</span>
@@ -136,6 +139,7 @@ const PromptDetail = () => {
                             <span className="likes-font">2000</span>
                             <TbDOWNLine className="icon1"/>
                         </div>
+                        
                         <div className="alert-square">
                             <StarLine className="icon1"/>
                         </div>
