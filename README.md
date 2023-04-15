@@ -4,11 +4,11 @@
   Our product portfolio: 1. Web3 service platform for AI App developers; 2. AI Prompt NFT marketplace; 3. Web3 LLM-as-a-service.
 
 
-- Website: [megaxis.org](http://52.199.77.200:8528/welcome)
+- Website: [megaxis.org](http://megaxis.ai:8528/welcome)
 
 - promptmarket: [prompt.nftmarket.org](http://megaxis.ai:3000/)
 
-- contract : [nft.]
+- contract : [promptnft.sol](https://mumbai.polygonscan.com/address/0xd8f65552dE03BA8366B4b646B4EA2b3045fE2721#code)
 
 - Twitter: [@megaxis](https://twitter.com/Uniswap)
 
@@ -25,8 +25,8 @@ To develop the megaxis,
 Deploy, install packages and set configurations according to the project README of the front end, back end, and contract.
 - front-end-doc: [README.front](https://github.com/megaxis-for-ethtokyo/megaxis_for_ethtokyo/blob/main/megaxisFront/README.md)
 - back-end-doc: [README.back](https://github.com/megaxis-for-ethtokyo/megaxis_for_ethtokyo/blob/main/tieBackend/README.MD)
-- contract-doc: [README.contract](https://twitter.com/)
-- Email: [contact@megaxis.org](mailto:contact@uniswap.org)
+- contract-doc: [README.contract](https://github.com/megaxis-for-ethtokyo/megaxis_for_ethtokyo/blob/main/Hardhat-PromptNft-market/README.md)
+- nft-market-doc: [README.market](https://github.com/megaxis-for-ethtokyo/megaxis_for_ethtokyo/blob/main/prompt-nft-market-poly/README.md)
 
 ## Contributions
 
