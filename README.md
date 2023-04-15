@@ -5,11 +5,13 @@
 
 
 - Website: [megaxis.org](http://52.199.77.200:8528/welcome)
-- promptmarket: [prompt.nftmarket.org](http://52.199.77.200:8528/)
-- Interface: [app.megaxis.org](https://app.uniswap.org)
+
+- promptmarket: [prompt.nftmarket.org](http://megaxis.ai:3000/)
+
+- contract : [nft.]
+
 - Twitter: [@megaxis](https://twitter.com/Uniswap)
-- Email: [contact@megaxis.org](mailto:contact@uniswap.org)
-- Discord: [Uniswap](https://discord.gg/FCfyBSbCU5)
+
 - screenshot:
   - [welcome](https://github.com/megaxis-for-ethtokyo/megaxis_for_ethtokyo/blob/main/shotscreen/screen.png?raw=true)
   - [main page](https://https://github.com/megaxis-for-ethtokyo/megaxis_for_ethtokyo/blob/main/shotscreen/screen1.png?raw=true)
@@ -43,13 +45,7 @@ Your PR title must follow [conventional commits](https://www.conventionalcommits
 - style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
 - test: Adding missing tests or correcting existing tests
 
-Example commit messages:
-
-- feat: adds support for safe wallet
-- fix: removes a polling memory leak
-- chore: bumps redux version
-
-Other things to note:
+things to note:
 
 - Please describe the change using verb statements (ex: Removes X from Y)
 - PRs with multiple changes should use a list of verb statements
