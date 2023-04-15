@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useState} from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { useParams } from "react-router"
 import { Card, List, Modal, notification, Pagination } from "antd"
@@ -13,16 +13,15 @@ import { TypeContext } from "../../layout"
 import { ReactComponent as TbUPLine } from '../../../src/assets/icon/thumb-up-line.svg'
 import { ReactComponent as TbDOWNLine } from '../../../src/assets/icon/thumb-down-line.svg'
 import { Spin } from 'antd';
-import {ScoreContext} from "../../contexts/ScoreContext";
+
 
 const PlusGPT = (props) => {
-    const { updateScore } = useContext(ScoreContext);
     const routerParams = useParams()
     const helloWord = "Hey there! This is Magaxis.\n  I’m here to make it easier to access AIGC. \nConnect your wallet first and talk to me - I can help you perform various tasks."
     const [chatData, setChatData] = useState([{ id: 0, context: helloWord }])
     const [currentAsk, setCurrentAsk] = useState('')
     const [askData, setAskData] = useState([])
-    const [pageInfo, setPageInfo] = useState([1, 3])
+    const [pageInfo, setPageInfo] = useState([1, 5])
     const [showPrompt, setShowPrompt] = useState([{ params: [] }, { params: [] }])
     const [usePrompt, setUsePrompt] = useState(false)
     // 购买确认栏
@@ -71,12 +70,10 @@ const PlusGPT = (props) => {
             setModalOpen(false)
             setConfirmLoading(false)
             setIsNotify(0)
-            updateScore();
         }).catch(err => {
             setModalOpen(false);
             setConfirmLoading(false);
             setIsNotify(1);
-            updateScore();
         })
         console.log(curPrompt.name)
     }
@@ -185,7 +182,7 @@ const PlusGPT = (props) => {
             await  getByKey(requestBody).then(res => {
                 const newData = res.data.PromptInfos === null? []: res.data.PromptInfos;
                 setShowPrompt(newData)
-                setTotal(Math.ceil(res.data.total ))
+                setTotal(Math.ceil(res.data.total / pageInfo[1]))
                 setLoading(false); // 设置loading为false
             })
         }catch (error) {
@@ -203,7 +200,7 @@ const PlusGPT = (props) => {
         getByType(requestBody).then(res => {
             const newData = res.data.PromptInfos === null ? [] : res.data.PromptInfos
             console.log("total:", res.data.total)
-            setTotal(Math.ceil(res.data.total))
+            setTotal(Math.ceil(res.data.total / pageInfo[1]))
             setShowPrompt(newData)
         })
     }
@@ -229,45 +226,7 @@ const PlusGPT = (props) => {
             >
                 <p>暂无使用权限，是否购买该prompt？</p>
             </Modal>
-            <div className='chat-left'>
-
-                <div className="box" style={{ height: "100%" }}>
-                    <div className="box-header">
-                        <span className="box-title" onClick={() => { console.log(showPrompt) }}>Recommended prompt</span>
-                        <input
-                            className="search-bar"
-                            type="text"
-                            placeholder="Search"
-                        />
-                    </div>
-                    <div className="box-content">
-                        {loading ? (
-                            <div className="loading">
-                                <Spin tip="Loading..." />
-                            </div>
-                        ) : (
-                        <List
-                            itemLayout="vertical"
-                            size="large"
-                            // grid={{ gutter: 16, column: 3 }}
-                            dataSource={showPrompt}
-                            split={false}
-                            pagination={{
-                                simple: 'simple', pageSize: pageInfo[1], total: total, onChange: (page) => { handleChangePage(page, pageInfo[1]); getGeneralPrompt() }
-                            }}
-                            scroll={{ y: 240 }}
-                            renderItem={(item, index) => (
-                                <List.Item>
-                                    <PromptCard onClick={() => handleSelectPrompt(item)} props={item} key={index}></PromptCard>
-                                </List.Item>
-                            )}
-                        >
-                        </List>)}
-
-                    </div>
-                </div>
-
-            </div>
+            
             <div className="chat-container">
                 <div className="chat-window">
                     {chatData.map((item) => {
@@ -293,23 +252,22 @@ const PlusGPT = (props) => {
                         )
                     })}
                     {usePrompt ? (<div className="prompt-use-card">
-                    <div className="bigbox">
                         <div className="prompt-use-info">
                             {curPrompt.name}
                             <span className="prompt-use-author">
-                                by <a href="#" className="author">{curPrompt.author}</a>
+                                by {curPrompt.author}
                             </span>
                         </div>
-                    </div>
-                         <div className="divider"></div>
+
                         <div className="prompt-params">
 
                             {curPrompt.params.split(',').map((item, index) =>
                                 <div className="params-form" key={index}>
                                     {item}
                                     <input className="params-input"
-                                        placeholder="Param Value"
+                                        placeholder="param value"
                                         onChange={(value) => changeParams(value, index)}
+
                                     />
                                 </div>
                             )}

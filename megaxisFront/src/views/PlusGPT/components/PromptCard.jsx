@@ -99,7 +99,7 @@ const PromptCard = (props = PromptCard.defaultProps) => {
     }
   }
   return (
-    <div onClick={props.props.onClick}>
+    <div onClick={props.onClick}>
       <div className="prompt-card">
         <div className="label">{formatPrice(props.props.price)}</div>
         <div className="labels-right">
@@ -132,11 +132,12 @@ const PromptCard = (props = PromptCard.defaultProps) => {
             </div>
             <div className="namecol">
               <div className="name">
-                <a href="#" className="link">
-                  {props.props.author? (props.props.author.length > 5
-                      ? props.props.author.slice(0, 4) + "..." + props.props.author.slice(-4)
-                      : props.props.author):'Loading'}
-                </a>
+                #{props.props.nftid}
+                {/*<a href="#" className="link">*/}
+                {/*  {props.props.author? (props.props.author.length > 5*/}
+                {/*      ? props.props.author.slice(0, 4) + "..." + props.props.author.slice(-4)*/}
+                {/*      : props.props.author):'Loading'}*/}
+                {/*</a>*/}
               </div>
               <div className="time">{props.props.createTime ? props.props.createTime.substring(0, 10):'Loading...'}</div>
             </div>
@@ -184,6 +185,7 @@ PromptCard.defaultProps = {
     update_time: "2022-12-20",
     desc: "A prompt that’s useful for every task.",
     likes: 1000,
+    nftid: 1,
 //     "img_url": "",      // url
 //     // 以下可暂时不用
 //     "views": 1000,

@@ -8,6 +8,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
 import PromptDetail from "./views/PromptNFT/PromptDetail";
 import CreatePrompt from "./views/PromptNFT/component/CreatePrompt/CreatePrompt";
 import {TypeContext} from "./layout";
+import Welcome from "./views/Welcome/Welcome";
+
+
 export const UserContext = createContext()
 const AppRoutes = () => {
     return (
@@ -19,6 +22,7 @@ const AppRoutes = () => {
                     <Route path="/prompt-nft" element={<PromptNFT />} />
                     <Route path="/tools-store" element={<ToolsStore />} />
                     <Route path="/create" element={<CreatePrompt />} />
+                    <Route path="/Welcome" element={<Welcome/>}/>
 
 
                 </Routes>

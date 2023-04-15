@@ -59,35 +59,60 @@
 
 .chat-container {
     width: 60%;
-    padding: 0 20px 20px 0 !important;
+    padding: 0 20px 37px 0 !important;
     margin: 0 10px 10px 10px;
 }
 
 .chat-window {
+
     height: 89%;
     background-color: black;
     overflow-y: auto;
     flex-direction:column;
     border: 1px solid #757575;
-    padding-right: 10px;
+
 }
 .prompt-use-card {
 
     height: 132px;
-    margin-top:auto;
+    margin-top:360px;
     border-top: 1px solid #757575;
     padding:20px;
     text-align: left;
     background-color: rgba(0,0,0, 0.3);
     background-image: linear-gradient(to bottom, rgba(0, 11, 123, 0.39), rgba(0,0,0,0.65));
 }
+.bigbox{
+    margin-left: 20px;
+}
+.divider{
+    width: 95%; /* Adjust this value to change the length of the divider */
+    height: 1px;
+    background-color: #757575;
+    margin: 10px auto; /* This will center the divider */
+}
 .prompt-use-author {
     margin-left: 50px;
     font-size: 14px;
+
 }
+.author{
+    color: #CCCCCC;
+    text-decoration: underline;
+}
+.author:hover{
+    color: #1677ff;
+    text-decoration: none;
+    background-color: transparent;
+    outline: none;
+
+    transition: color 0.3s;
+}
+
 .prompt-use-info {
     color: #ffffff;
-
+    font-weight: bolder;
+    font-size: 20px;
 }
 .close-prompt {
 
@@ -101,9 +126,11 @@
     color: white;
     float: left;
     width: 200px;
+
 }
 .params-input {
     width: 180px;
+    height: 25px;
     flex-grow: 1;
     outline: none;
     border: 1px solid #757575;
@@ -111,6 +138,8 @@
     padding: 4px;
     background-color: black;
     color: #ffffff;
+    margin-top: 8px;
+    margin-right: 18px;
 }
 
 .chat-message {

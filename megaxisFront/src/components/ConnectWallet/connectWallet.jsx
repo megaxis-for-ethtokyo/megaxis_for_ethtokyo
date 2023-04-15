@@ -1,15 +1,19 @@
-import React, { useContext, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Web3 from 'web3';
 import {ReactComponent as Addfill} from "../../assets/icon/add-fill.svg"
 import {UserContext} from '../../App';
 import "./connectWallet.css"
 import {login} from "../../api/user";
-import { setToken } from "../../utils/auth";
-import {Link} from "react-router-dom";
+import {getToken, setToken} from "../../utils/auth";
+import {Link, useNavigate} from "react-router-dom";
+import {getProfile} from "../../api/user";
+import {ScoreContext} from "../../contexts/ScoreContext";
 
 function ConnectWallet() {
     const { user, setUser } = useContext(UserContext);
+    const { score, updateScore } = useContext(ScoreContext);
     const [account, setAccount] = useState('');
+    //const [score, setScore] = useState(0);
 
     const connectWallet = async () => {
         const web3 = new Web3(window.ethereum);
@@ -21,15 +25,29 @@ function ConnectWallet() {
             setToken(data.uid);
             // console.log(data.username);
             setUser(data.username);
+
         })
 
     };
+    const getProfiles = () => {
+        updateScore()
+
+    }
 
     const disconnectWallet = () => {
         setAccount('');
         setUser('');
         setToken('');
     };
+
+    useEffect(() => {
+        console.log("useEffect")
+        getProfiles();
+        const uid = getToken();
+        if(uid != undefined && uid!= '') {
+            setAccount('account')
+        }
+    }, [])
 
     return (
         <div >
@@ -43,12 +61,15 @@ function ConnectWallet() {
                 <div>
                     <div className="disconnect-button">
                         Wallet connected: {user}
-                        <div  onClick={disconnectWallet}>Disconnect</div>
+                        <div  onClick={disconnectWallet}>Your Scores:{score}</div>
                     </div>
-                    <div className="create-prompt-bg">
+                    <div className="create-container" onClick={() => {
+                        window.open("http://127.0.0.1:3000/create")
+                        getProfiles()
+                    }}>
                         {/*<Link to={"create"}>*/}
-                        <Addfill fill="white" />
-                        <button className="create-button"> create</button>
+                        <Addfill className="addicon" />
+                        <button className="button-new"> Create</button>
                         {/*</Link>*/}
                     </div>
 

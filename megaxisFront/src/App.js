@@ -6,9 +6,19 @@ import React, { createContext, useState } from 'react'
 import {  ConfigProvider, theme, Input } from 'antd';
 import Layout from "./layout";
 import { MoralisProvider } from "react-moralis"
+import {ScoreContext} from "./contexts/ScoreContext";
+import {getProfile} from "./api/user";
+
 export const UserContext = createContext()
-const App:React.FC = () =>{
+const App = () =>{
+    const [score, setScore] = useState(0);
+    const updateScore = () => {
+        getProfile({}).then(res => {
+            setScore(res.data.score);
+        });
+    };
     return (
+        <ScoreContext.Provider value={{ score, updateScore }}>
         <MoralisProvider initializeOnMount={false}>
         <div className="App">
             <ConfigProvider
@@ -28,6 +38,7 @@ const App:React.FC = () =>{
 
         </div>
         </MoralisProvider>
+        </ScoreContext.Provider>
     )
 }
 

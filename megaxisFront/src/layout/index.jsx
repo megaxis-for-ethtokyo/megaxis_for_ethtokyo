@@ -16,10 +16,11 @@ const Layout = (props) => {
     // const navigate = useNavigate();
     const [user, setUser] = useState(null)
     // const [type, setType] = useState();
-    const [curType, setCurType] = useState(1);
+    const [curType, setCurType] = useState(0);
     function handleGeneral() {
         setCurType(1);
         // navigate('/1');
+        window.open("/1");
     }
     function handleAcademic() {
         setCurType(2);

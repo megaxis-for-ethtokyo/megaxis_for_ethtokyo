@@ -9,6 +9,15 @@ export function login(data) {
   })
 }
 
+export function getProfile(data) {
+  data["uid"] = getToken()
+  return request({
+    url: '/user/profile',
+    method: 'post',
+    data: data
+  })
+}
+
 export function changeProfile(data) {
   data["uid"] = getToken()
   return request({
