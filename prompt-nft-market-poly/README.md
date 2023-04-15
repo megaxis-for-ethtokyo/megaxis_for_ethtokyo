@@ -1,5 +1,6 @@
-# NextJS NFT Marketplace with TheGraph
+# NextJS NFT Marketplace
 
+this project is NFT Market of megaxis developed with TheGraph
 
 ## 1. Git clone the contracts repo
 
